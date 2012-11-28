@@ -1,0 +1,69 @@
+snippet jsd
+	###*
+	${1}
+	###
+snippet @f
+	###*
+	@fileoverview ${1}
+	###
+
+	${2}
+snippet @c
+	###*
+	${1}
+	@constructor
+	###
+	${2:name} = (${3:params}) ->
+		${4}
+		return
+snippet @p
+	@param {${1:type}} ${2:name} ${3:description}
+snippet @r
+	@return {${1:type}} ${2:description}
+snippet @t
+	###*
+	${2:description}
+	@type {${1:type}}
+	###
+	${3}
+snippet for
+	for ${1:name} in ${2:array}
+snippet forby
+	for ${1} in ${2} by ${3}
+snippet gp
+	goog.provide '${1}'
+
+snippet gr
+	goog.require '${1}'
+snippet gs
+	goog.scope ->
+		${1}
+
+		return
+snippet gsv
+	\`var ${1:alias} = ${2}.$1\`
+snippet gcast
+	\`${1:var} = /** @type {${2:type}} */ ($1)\`
+snippet gclass
+	###*
+	@fileoverview ${1:ClassName} class
+	###
+
+	goog.provide '${2:namespace}.$1'
+
+	###*
+	@constructor
+	###
+	flipboard.layout.$1 = ->
+
+	goog.scope ->
+		\`var $1 = flipboard.layout.$1\`
+
+		$1:: =
+			${3}
+
+		return
+snippet nr
+	${1:module} = require '${2:$1}'
+snippet ife
+	if ${1:err} then return ${2:callback} $1
