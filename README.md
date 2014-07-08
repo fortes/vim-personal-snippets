@@ -1,6 +1,6 @@
-# Personal CoffeeScript Snippets
+# Personal Snippets
 
-I use these, but you probably don't want / need to. They're particularly useful when writing CoffeeScript that will be compiled by Closure Compiler.
+I use these, but you probably don't want / need to. They work with [Ultisnips](https://github.com/SirVer/ultisnips).
 
 ## License
 
