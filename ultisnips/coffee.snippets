@@ -1,0 +1,44 @@
+# General JS
+snippet fn "function"
+(${1:args}) ->
+  $0
+endsnippet
+
+snippet if "if statement"
+if ${1:true}
+  $0
+endsnippet
+
+snippet ife "if/else statement"
+if ${1:true}
+  ${2}
+else
+  $0
+endsnippet
+
+snippet .fe "Array forEach" i
+.forEach (${1:item}) ->
+  $0
+endsnippet
+
+snippet .m "Array map" i
+.map (${1:item}) ->
+  $0
+  ${2:newItem};
+});
+endsnippet
+
+snippet mr "Module require"
+${1:module} = require '${2:$1}'
+endsnippet
+
+snippet mri "Module require (inline)"
+${1:module} = require '${2:$1}'
+endsnippet
+
+snippet ifer "If error, return callback"
+if ${1:err}
+  return ${2:callback} $1
+
+$0
+endsnippet
