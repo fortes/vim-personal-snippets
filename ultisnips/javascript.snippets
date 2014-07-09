@@ -1,8 +1,8 @@
 # General JS
 snippet fn "function"
-function (${1:args}) {
+function(${1:args}) {
   $0
-};
+}${2:;}
 endsnippet
 
 snippet if "if statement"
@@ -21,25 +21,21 @@ else {
 endsnippet
 
 snippet .fe "Array forEach" i
-.forEach(function (${1:item}) {
+.forEach(function(${1:item}) {
   $0
-});
+}){$2:;}
 endsnippet
 
 snippet .m "Array map" i
-.map(function (${1:item}) {
-  var ${2:newItem};
+.map(function(${1:item}) {
+  var ${3:newItem};
   $0
-  return ${3:$2};
-});
+  return ${4:$4};
+}){$2:;}
 endsnippet
 
 snippet mr "Module require"
-var ${1:module} = require('${2:$1}');
-endsnippet
-
-snippet mri "Module require (inline)"
-${1:module} = require('${2:$1}'),
+var ${1:module} = require('${2:$1}')${3:;}
 endsnippet
 
 snippet ifer "If error, return callback"
