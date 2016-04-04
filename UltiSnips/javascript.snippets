@@ -1,7 +1,7 @@
 # vim: fdm=marker
 # General JS
 snippet fn "function"
-function(${1:args}) {
+(${1:args}) => {
   $0
 }${2:;}
 endsnippet
@@ -21,21 +21,18 @@ if (${1:true}) {
 endsnippet
 
 snippet .fe "Array forEach" i
-.forEach(function(${1:item}) {
+.forEach((${1:item}) => {
   $0
 }){$2:;}
 endsnippet
 
 snippet .m "Array map" i
-.map(function(${1:item}) {
-  var ${3:newItem};
-  $0
-  return ${4:$4};
+.map((${1:item}) => {
 }){$2:;}
 endsnippet
 
 snippet mr "Module require"
-${1:module} = require('${2:$1}')${3:;}
+const ${1:module} = require('${2:$1}')${3:;}
 endsnippet
 
 snippet epd "Prevent default & stop propagation"
@@ -45,25 +42,25 @@ endsnippet
 
 # Mocha-isms {{{
 snippet des "Test describe"
-describe('${1}', function() {
+describe('${1}', () => {
 	$0
 });
 endsnippet
 
 snippet it "Test it"
-it('${1}', function() {
+it('${1}', () => {
 	$0
 });
 endsnippet
 
 snippet ae "Test After Each"
-afterEach(function() {
+afterEach(() => {
 	$0
 });
 endsnippet
 
 snippet be "Test Before Each"
-beforeEach(function() {
+beforeEach(() => {
 	$0
 });
 endsnippet
@@ -99,7 +96,7 @@ ${1:this}.getDOMNode()$0
 endsnippet
 
 snippet gis "getInitialState"
-getInitialState: function() {
+getInitialState() {
 	return {
 		$1
 	};
@@ -107,7 +104,7 @@ getInitialState: function() {
 endsnippet
 
 snippet gdp "getDefaultProps"
-getDefaultProps: function() {
+getDefaultProps() {
 	return {
 		$1
 	};
@@ -115,43 +112,43 @@ getDefaultProps: function() {
 endsnippet
 
 snippet cwm "componentWillMount"
-componentWillMount: function() {
+componentWillMount() {
 	$1
 },
 endsnippet
 
 snippet cdm "componentDidMount"
-componentDidMount: function() {
+componentDidMount() {
 	$1
 },
 endsnippet
 
 snippet cwrp "componentWillReceiveProps"
-componentWillReceiveProps: function(nextProps) {
+componentWillReceiveProps(nextProps) {
 	$1
 },
 endsnippet
 
 snippet cwup "componentWillUpdate"
-componentWillUpdate: function(nextProps, nextState) {
+componentWillUpdate(nextProps, nextState) {
 	$1
 },
 endsnippet
 
 snippet cdu "componentDidUpdate"
-componentDidUpdate: function(prevProps, prevState) {
+componentDidUpdate(prevProps, prevState) {
 	$1
 },
 endsnippet
 
 snippet cwun "componentWillUnmount"
-componentWillUnmount: function() {
+componentWillUnmount() {
 	$1
 },
 endsnippet
 
 snippet scu "shouldComponentUpdate"
-shouldComponentUpdate: function(nextProps, nextState) {
+shouldComponentUpdate(nextProps, nextState) {
 	$1
 },
 endsnippet
@@ -167,7 +164,7 @@ module.exports = React.createClass({
 	propTypes: {
 	},
 
-	render: function() {
+	render() {
 		${2:return React.DOM.div(null, 'My Component');}
 	}
 });
