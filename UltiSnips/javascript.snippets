@@ -2,27 +2,27 @@
 # General JS
 snippet fn "function"
 (${1:args}) => {
-  $0
+	$0
 }${2:;}
 endsnippet
 
 snippet if "if statement"
 if (${1:true}) {
-  $0
+	$0
 }
 endsnippet
 
 snippet ife "if/else statement"
 if (${1:true}) {
-  ${2}
+	${2}
 } else {
-  $0
+	$0
 }
 endsnippet
 
 snippet .fe "Array forEach" i
 .forEach((${1:item}) => {
-  $0
+	$0
 }){$2:;}
 endsnippet
 
@@ -66,7 +66,7 @@ beforeEach(() => {
 endsnippet
 
 snippet tpi "prettyPrint instance"
-testHelper.prettyPrint(${1:instance}.getDOMNode());$0
+testHelper.prettyPrint(ReactDOM.findDOMNode(${1:instance}));$0
 endsnippet
 # }}}
 
@@ -91,82 +91,117 @@ snippet pstr "String propType"
 	${1}: React.PropTypes.string${2:.isRequired}${3:,}
 endsnippet
 
-snippet gdm "getDOMNode"
-${1:this}.getDOMNode()$0
-endsnippet
-
-snippet gis "getInitialState"
-getInitialState() {
-	return {
-		$1
-	};
-},
-endsnippet
-
-snippet gdp "getDefaultProps"
-getDefaultProps() {
-	return {
-		$1
-	};
-},
+snippet fdm "findDOMNode"
+ReactDOM.findDOMNode(${1:this})$0
 endsnippet
 
 snippet cwm "componentWillMount"
 componentWillMount() {
 	$1
-},
+}
 endsnippet
 
 snippet cdm "componentDidMount"
 componentDidMount() {
 	$1
-},
+}
 endsnippet
 
 snippet cwrp "componentWillReceiveProps"
 componentWillReceiveProps(nextProps) {
 	$1
-},
+}
 endsnippet
 
 snippet cwup "componentWillUpdate"
 componentWillUpdate(nextProps, nextState) {
 	$1
-},
+}
 endsnippet
 
 snippet cdu "componentDidUpdate"
 componentDidUpdate(prevProps, prevState) {
 	$1
-},
+}
 endsnippet
 
 snippet cwun "componentWillUnmount"
 componentWillUnmount() {
 	$1
-},
+}
 endsnippet
 
 snippet scu "shouldComponentUpdate"
 shouldComponentUpdate(nextProps, nextState) {
 	$1
-},
+}
+endsnippet
+
+snippet rex "React Example"
+'use strict';
+
+const {${1:Component}} = require('../${2:$1}');
+
+const description = '';
+const examples = [
+	{
+		name: 'Basic',
+		render() {
+			return Component.create();
+		},
+	},
+];
+
+module.exports = {
+	component: $1,
+	description: '',
+	examples,
+};
 endsnippet
 
 snippet rcomp "React Component"
-var React = require('react/addons');
+'use strict';
 
-module.exports = React.createClass({
-	mixins: [React.addons.PureRenderMixin],
+const BaseComponent = require('kr-react-components/base_component');
+const React = require('react');
 
-	displayName: '${1:MyComponent}',
-
-	propTypes: {
-	},
-
+class ${1:MyComponent} extends BaseComponent {
 	render() {
 		${2:return React.DOM.div(null, 'My Component');}
 	}
+}
+
+BaseComponent.defaultProps = {
+};
+
+BaseComponent.propTypes = {
+};
+
+module.exports.${2:$1} = ${2:$1}
+endsnippet
+
+snippet rtest "React Component Test"
+const testHelper = require('../test_helper');
+
+const {${1:Component}} = require('../${2:$1}');
+const ReactDOM = require('react-dom');
+
+describe('${3:$1}', () => {
+	let instance;
+	let node;
+
+	beforeEach(() => {
+		instance = testHelper.renderComponent($1.create({
+		}));
+		assert(instance, 'Instantiated');
+
+		node = ReactDOM.findDOMNode(instance);
+		assert(node, 'Rendered');
+	});
+
+	it('works', () => {
+		assert(false, 'TODO: Implement tests');
+	});
 });
 endsnippet
 # }}}
