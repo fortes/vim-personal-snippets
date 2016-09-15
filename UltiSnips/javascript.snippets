@@ -147,14 +147,14 @@ const examples = [
 	{
 		name: 'Basic',
 		render() {
-			return Component.create();
+			${0:return Component.create();}
 		},
 	},
 ];
 
 module.exports = {
 	component: $1,
-	description: '',
+	description,
 	examples,
 };
 endsnippet
@@ -167,26 +167,28 @@ const React = require('react');
 
 class ${1:MyComponent} extends BaseComponent {
 	render() {
-		${2:return React.DOM.div(null, 'My Component');}
+		${0:return React.DOM.div(null, 'My Component');}
 	}
 }
 
-BaseComponent.defaultProps = {
+$1.defaultProps = {
 };
 
-BaseComponent.propTypes = {
+$1.propTypes = {
 };
 
-module.exports.${2:$1} = ${2:$1}
+module.exports.$1 = $1;
 endsnippet
 
 snippet rtest "React Component Test"
+'use strict';
+
 const testHelper = require('../test_helper');
 
 const {${1:Component}} = require('../${2:$1}');
 const ReactDOM = require('react-dom');
 
-describe('${3:$1}', () => {
+describe('$1', () => {
 	let instance;
 	let node;
 
@@ -200,8 +202,16 @@ describe('${3:$1}', () => {
 	});
 
 	it('works', () => {
-		assert(false, 'TODO: Implement tests');
+		${0:assert(false, 'TODO: Implement tests');}
 	});
 });
+endsnippet
+
+snippet cons "constructor"
+constructor(props) {
+	super(props);
+	${1:this.autoBindMethods();}
+}
+
 endsnippet
 # }}}
