@@ -147,7 +147,7 @@ const examples = [
 	{
 		name: 'Basic',
 		render() {
-			${0:return Component.create();}
+			${0:return $1.create();}
 		},
 	},
 ];
@@ -162,7 +162,7 @@ endsnippet
 snippet rcomp "React Component"
 'use strict';
 
-const BaseComponent = require('kr-react-components/base_component');
+const {BaseComponent} = require('@kr-browser/react-components/base_component');
 const React = require('react');
 
 class ${1:MyComponent} extends BaseComponent {
